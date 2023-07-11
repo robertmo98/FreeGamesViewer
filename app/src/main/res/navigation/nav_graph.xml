@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/firstFragment">
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="edu.robertmo.freegamesviewer.ui.firstpage.FirstFragment"
+        android:label="fragment_first"
+        tools:layout="@layout/fragment_first" >
+        <action
+            android:id="@+id/action_firstFragment_to_chooseCategoryFragment"
+            app:destination="@id/chooseCategoryFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_choosePlatformFragment"
+            app:destination="@id/choosePlatformFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_discoverGamesFragment"
+            app:destination="@id/discoverGamesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseCategoryFragment"
+        android:name="edu.robertmo.freegamesviewer.ui.ChooseCategoryFragment"
+        android:label="fragment_choose_category"
+        tools:layout="@layout/fragment_choose_category" >
+        <action
+            android:id="@+id/action_chooseCategoryFragment_to_gamesByCategory"
+            app:destination="@id/gamesByCategory" />
+    </fragment>
+    <fragment
+        android:id="@+id/choosePlatformFragment"
+        android:name="edu.robertmo.freegamesviewer.ui.ChoosePlatformFragment"
+        android:label="fragment_choose_platform"
+        tools:layout="@layout/fragment_choose_platform" >
+        <action
+            android:id="@+id/action_choosePlatformFragment_to_gamesByPlatformFragment"
+            app:destination="@id/gamesByPlatformFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/discoverGamesFragment"
+        android:name="edu.robertmo.freegamesviewer.ui.DiscoverGamesFragment"
+        android:label="fragment_discover_games"
+        tools:layout="@layout/fragment_discover_games" />
+    <fragment
+        android:id="@+id/gamesByCategory"
+        android:name="edu.robertmo.freegamesviewer.ui.GamesByCategory"
+        android:label="fragment_games_by_category"
+        tools:layout="@layout/fragment_games_by_category" />
+    <fragment
+        android:id="@+id/gamesByPlatformFragment"
+        android:name="edu.robertmo.freegamesviewer.ui.GamesByPlatformFragment"
+        android:label="fragment_games_by_platform"
+        tools:layout="@layout/fragment_games_by_platform" />
+</navigation>
