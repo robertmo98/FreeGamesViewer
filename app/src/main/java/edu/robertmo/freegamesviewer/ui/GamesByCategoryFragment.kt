@@ -1,15 +1,13 @@
 package edu.robertmo.freegamesviewer.ui
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.get
-import androidx.lifecycle.viewModelScope
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import edu.robertmo.freegamesviewer.R
 import edu.robertmo.freegamesviewer.databinding.FragmentGamesByCategoryBinding
 import edu.robertmo.freegamesviewer.service.GameService
 import edu.robertmo.freegamesviewer.ui.adapters.GameAdapter
@@ -24,7 +22,7 @@ class GamesByCategory : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val category = requireArguments().getString("category")
 
         viewModel = ViewModelProvider(this).get(GamesByCategoryViewModel::class.java)
@@ -35,6 +33,14 @@ class GamesByCategory : Fragment() {
             viewModel.fetchGamesByCategory(category)
         }
 
+        ///api response with the passed query, for example:
+        ///GET(https://www.freetogame.com/api/games?category=strategy) retrieves json object with
+        ///different and irrelevant genres (categories) (relevant for the 12'th of July 23)
+        ///debugging was conducted : the chosen category was passed and received correctly.
+        /// the query parameter passes correctly.
+        ///bottom line: code logic is correct and was tested .
+
+
         viewModel.games.observe(viewLifecycleOwner) {
             val adapter = GameAdapter(it)
             binding.recyclerFilteredGames.adapter = adapter
@@ -42,7 +48,6 @@ class GamesByCategory : Fragment() {
         }
 
         _binding = FragmentGamesByCategoryBinding.inflate(inflater, container, false)
-
 
         return binding.root
     }

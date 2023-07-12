@@ -31,7 +31,7 @@ class GamesByCategoryViewModel : ViewModel() {
     fun fetchGamesByCategory(category: String) {
         viewModelScope.launch {
             try {
-                val response = gameService.getGamesByCategory(chosenCategory)
+                val response = gameService.getGamesByCategory(category)
                 _games.postValue(response)
             } catch (e: Exception){
                 Log.e(TAG, "Failed to fetch games", e)
