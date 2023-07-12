@@ -2,4 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="app_background_color">#B1D5F1</color>
+    <color name="buttonsColor">#427BA6</color>
 </resources>

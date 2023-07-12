@@ -33,6 +33,12 @@ class DiscoverGamesFragment : Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        // set the name on the upper menu ber
+        (activity as? MainActivity)?.setToolbarTitle("Discover The Latest Games")
+    }
+
 
 
 }

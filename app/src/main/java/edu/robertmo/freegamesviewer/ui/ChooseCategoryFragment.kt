@@ -47,6 +47,12 @@ class ChooseCategoryFragment : Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        // set the name on the upper menu ber
+        (activity as? MainActivity)?.setToolbarTitle("Choose Category")
+    }
+
 
 
 }

@@ -4,15 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.firstpage.FirstFragment" >
+    android:background="@color/app_background_color"
+    tools:context=".ui.firstpage.FirstFragment">
 
     <TextView
-        android:id="@+id/first_intro"
+        android:id="@+id/txt_app_intro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Free Games Viewer"
-        android:textSize="24sp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/free_games_viewer"
+        android:textColor="#1B4160"
+        android:textColorHint="#000000"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,29 +26,46 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Platforms"
+        android:backgroundTint="@color/buttonsColor"
+        android:text="@string/platforms"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/first_intro" />
-
-    <Button
-        android:id="@+id/btn_discover_games"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Discover Newest Games"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_categories" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_instruction" />
 
     <Button
         android:id="@+id/btn_categories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Categories"
+        android:layout_marginTop="64dp"
+        android:backgroundTint="@color/buttonsColor"
+        android:text="@string/categories"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_platforms" />
+
+    <Button
+        android:id="@+id/btn_latest_release_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:backgroundTint="@color/buttonsColor"
+        android:text="@string/latest_release_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_categories" />
+
+
+
+    <TextView
+        android:id="@+id/txt_instruction"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="@string/find_games_by"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_app_intro" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

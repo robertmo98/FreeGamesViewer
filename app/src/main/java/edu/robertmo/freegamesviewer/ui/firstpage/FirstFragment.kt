@@ -1,13 +1,14 @@
 package edu.robertmo.freegamesviewer.ui.firstpage
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import edu.robertmo.freegamesviewer.R
 import edu.robertmo.freegamesviewer.databinding.FragmentFirstBinding
+import edu.robertmo.freegamesviewer.ui.MainActivity
 
 
 class FirstFragment : Fragment() {
@@ -33,7 +34,7 @@ class FirstFragment : Fragment() {
             findNavController().navigate(R.id.action_firstFragment_to_chooseCategoryFragment)
         }
 
-        binding.btnDiscoverGames.setOnClickListener {
+        binding.btnLatestReleaseDate.setOnClickListener {
             findNavController().navigate(R.id.action_firstFragment_to_discoverGamesFragment)
         }
 
@@ -45,8 +46,15 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // set the name on the upper menu ber
+        (activity as? MainActivity)?.setToolbarTitle("Main Page")
     }
 }

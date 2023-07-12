@@ -44,4 +44,10 @@ class ChoosePlatformFragment : Fragment() {
         _binding = null
     }
 
+    override fun onResume() {
+        super.onResume()
+        // set the name on the upper menu ber
+        (activity as? MainActivity)?.setToolbarTitle("Platform Choice Page")
+    }
+
 }

@@ -26,6 +26,7 @@ class GameAdapter(val games : List<Game>): Adapter<GameAdapter.VH>() {
         val game = games[position]
         holder.binding.gameTitle.text = game.title
         holder.binding.gameDescription.text = game.shortDescription
+        holder.binding.gameCategory.text = game.genre
         Picasso.get().load(game.thumbnail).into(holder.binding.gameImage)
     }
 

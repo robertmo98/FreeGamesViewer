@@ -5,7 +5,8 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.DiscoverGamesFragment">
+    tools:context=".ui.DiscoverGamesFragment"
+    android:background="@color/app_background_color">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_discover"

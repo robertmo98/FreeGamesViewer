@@ -59,4 +59,8 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
     }
+
+    fun setToolbarTitle(title: String) {
+        supportActionBar?.title = title
+    }
 }
