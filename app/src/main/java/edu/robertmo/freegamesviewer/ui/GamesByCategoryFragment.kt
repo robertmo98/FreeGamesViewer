@@ -6,13 +6,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.get
+import androidx.lifecycle.viewModelScope
+import androidx.recyclerview.widget.GridLayoutManager
 import edu.robertmo.freegamesviewer.R
+import edu.robertmo.freegamesviewer.databinding.FragmentGamesByCategoryBinding
+import edu.robertmo.freegamesviewer.service.GameService
+import edu.robertmo.freegamesviewer.ui.adapters.GameAdapter
 
 class GamesByCategory : Fragment() {
 
-    companion object {
-        fun newInstance() = GamesByCategory()
-    }
+    private var _binding: FragmentGamesByCategoryBinding?= null
+    private val binding get() = _binding!!
 
     private lateinit var viewModel: GamesByCategoryViewModel
 
@@ -20,13 +25,31 @@ class GamesByCategory : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_games_by_category, container, false)
+        val category = requireArguments().getString("category")
+
+        viewModel = ViewModelProvider(this).get(GamesByCategoryViewModel::class.java)
+        viewModel.setGameService(GameService.create())
+
+        if(category != null) {
+            viewModel.setChosenCategory(category)
+            viewModel.fetchGamesByCategory(category)
+        }
+
+        viewModel.games.observe(viewLifecycleOwner) {
+            val adapter = GameAdapter(it)
+            binding.recyclerFilteredGames.adapter = adapter
+            binding.recyclerFilteredGames.layoutManager = GridLayoutManager(context, 3)
+        }
+
+        _binding = FragmentGamesByCategoryBinding.inflate(inflater, container, false)
+
+
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(GamesByCategoryViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

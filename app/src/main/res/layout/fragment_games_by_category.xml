@@ -7,7 +7,7 @@
     tools:context=".ui.GamesByCategory">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_general"
+        android:id="@+id/recycler_filtered_games"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

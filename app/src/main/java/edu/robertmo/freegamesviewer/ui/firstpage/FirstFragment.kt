@@ -30,7 +30,7 @@ class FirstFragment : Fragment() {
         }
 
         binding.btnCategories.setOnClickListener {
-            findNavController().navigate(R.id.action_chooseCategoryFragment_to_gamesByCategory)
+            findNavController().navigate(R.id.action_firstFragment_to_chooseCategoryFragment)
         }
 
         binding.btnDiscoverGames.setOnClickListener {

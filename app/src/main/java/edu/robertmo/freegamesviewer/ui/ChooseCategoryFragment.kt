@@ -6,27 +6,47 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.get
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import edu.dummy.finalprojectbeta1.ui.adapters.CategoryAdapter
 import edu.robertmo.freegamesviewer.R
+import edu.robertmo.freegamesviewer.databinding.FragmentChooseCategoryBinding
 
+private const val CATEGORY = "category"
 class ChooseCategoryFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = ChooseCategoryFragment()
-    }
+    private var _binding: FragmentChooseCategoryBinding?= null
+
+    private val binding get() = _binding!!
 
     private lateinit var viewModel: ChooseCategoryViewModel
+
+
+    private var choice = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_choose_category, container, false)
+    ): View {
+        viewModel = ViewModelProvider(this).get(ChooseCategoryViewModel::class.java)
+        _binding = FragmentChooseCategoryBinding.inflate(inflater, container, false)
+
+        viewModel.categories.observe(viewLifecycleOwner) {
+            val adapter = CategoryAdapter(it){ category ->
+                choice = category
+                val bundle = Bundle()
+                bundle.putString(CATEGORY, choice)
+                findNavController().navigate(R.id.action_chooseCategoryFragment_to_gamesByCategory, bundle)
+            }
+            binding.recyclerCategories.adapter = adapter
+            binding.recyclerCategories.layoutManager = GridLayoutManager(context, 3)
+
+        }
+
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ChooseCategoryViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+
 
 }

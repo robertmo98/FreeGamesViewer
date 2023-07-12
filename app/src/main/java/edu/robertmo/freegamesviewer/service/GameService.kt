@@ -20,6 +20,9 @@ interface GameService {
     @GET("games")
     suspend fun getGamesByPlatform(@Query("platform") platform: String): GameResponse
 
+    @GET("games")
+    suspend fun getGamesByCategory(@Query("category") category: String): GameResponse
+
 
     companion object {
         private const val BASE_URL = "https://www.freetogame.com/api/"

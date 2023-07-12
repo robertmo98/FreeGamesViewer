@@ -26,12 +26,12 @@ class ChoosePlatformFragment : Fragment() {
         binding.imageComputer.setOnClickListener {
             val bundle = Bundle()
             bundle.putString("platform","pc")
-            findNavController().navigate(R.id.action_choosePlatformFragment_to_gamesByPlatformFragment)
+            findNavController().navigate(R.id.action_choosePlatformFragment_to_gamesByPlatformFragment, bundle)
         }
         binding.imageBrowser.setOnClickListener {
             val bundle = Bundle()
             bundle.putString("platform","browser")
-            findNavController().navigate(R.id.action_choosePlatformFragment_to_gamesByPlatformFragment)
+            findNavController().navigate(R.id.action_choosePlatformFragment_to_gamesByPlatformFragment, bundle)
         }
 
         return binding.root
