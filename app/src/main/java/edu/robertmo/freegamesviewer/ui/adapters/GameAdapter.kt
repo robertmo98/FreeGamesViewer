@@ -10,13 +10,10 @@ import edu.robertmo.freegamesviewer.models.Game
 
 class GameAdapter(val games : List<Game>, private val callback: (game: Game) -> Unit): Adapter<GameAdapter.VH>() {
 
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         val inflater = LayoutInflater.from(parent.context)
         val binding = GameItemBinding.inflate(inflater, parent, false)
         return VH(binding)
-
     }
 
     override fun getItemCount() = games.size

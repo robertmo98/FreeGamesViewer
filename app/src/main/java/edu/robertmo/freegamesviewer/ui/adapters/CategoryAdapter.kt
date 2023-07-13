@@ -27,6 +27,5 @@ class CategoryAdapter(private val categories: List<String>, private val callback
     override fun getItemCount() = categories.size
 
 
-
     class VH(val binding: CategoryItemBinding): ViewHolder(binding.root)
 }

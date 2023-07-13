@@ -26,6 +26,7 @@ class GamesByCategory : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        //the category was passed from another fragment, depending on user's choice
         val category = requireArguments().getString("category")
 
         viewModel = ViewModelProvider(this).get(GamesByCategoryViewModel::class.java)
@@ -36,7 +37,7 @@ class GamesByCategory : Fragment() {
             viewModel.fetchGamesByCategory(category)
         }
 
-        ///api response with the passed query, for example:
+        ///api response for the passed query, for example:
         ///GET(https://www.freetogame.com/api/games?category=strategy) retrieves json object with
         ///different and irrelevant genres (categories) (relevant for the 12'th of July 23)
         ///debugging was conducted : the chosen category was passed and received correctly.

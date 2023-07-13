@@ -25,7 +25,7 @@ class DiscoverGamesFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         viewModel = ViewModelProvider(this).get(DiscoverGamesViewModel::class.java)
         val platformChosen = arguments?.getString("platform")
 
@@ -34,6 +34,7 @@ class DiscoverGamesFragment : Fragment() {
             val adapter = GameAdapter(it) {game ->
                 val bundle = Bundle()
                 bundle.putParcelable(ARG_GAME,game)
+                //clicking item - passes the object to the details fragment
                 findNavController().navigate(R.id.action_discoverGamesFragment_to_gameDetailsFragment, bundle)
             }
             binding.recyclerDiscover.adapter = adapter

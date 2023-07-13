@@ -1,4 +1,4 @@
-package edu.robertmo.freegamesviewer
+package edu.robertmo.freegamesviewer.ui.gamedetails
 
 import android.os.Build
 import androidx.lifecycle.ViewModelProvider
@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import com.squareup.picasso.Picasso
 import edu.robertmo.freegamesviewer.databinding.FragmentGameDetailsBinding
 import edu.robertmo.freegamesviewer.models.Game
+import edu.robertmo.freegamesviewer.ui.MainActivity
 
 private val ARG_GAME = "game"
 
@@ -39,9 +40,10 @@ class GameDetailsFragment : Fragment() {
         } ?: return
 
         binding.txtGameName.text = game.title
-        binding.txtCategoryDetails.text = game.releaseDate
+        binding.txtPlatform.text = game.platform
+        binding.txtCategoryDetails.text = game.genre
         binding.txtDescription.text = game.shortDescription
-        Picasso.get().load(game.freetogameProfileUrl).into(binding.imgGame)
+        Picasso.get().load(game.thumbnail).into(binding.imgGame)
     }
 
     override fun onDestroyView() {
@@ -50,5 +52,10 @@ class GameDetailsFragment : Fragment() {
     }
 
 
+    override fun onResume() {
+        super.onResume()
+        // set the name on the upper menu ber
+        (activity as? MainActivity)?.setToolbarTitle("Game Info")
+    }
 
 }

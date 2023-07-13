@@ -1,15 +1,13 @@
 package edu.robertmo.freegamesviewer.ui
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
 import edu.robertmo.freegamesviewer.R
 import edu.robertmo.freegamesviewer.databinding.ActivityMainBinding
 
@@ -41,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
 
     ///deleted the option items on the main menu. If needed,
-    ///it is possible to add <item> element in the menu_main.xml file and un-comment this method.
+    ///it is possible to add <item> element in the menu_main.xml file and un-comment the method below
 
 //    override fun onOptionsItemSelected(item: MenuItem): Boolean {
 //        // Handle action bar item clicks here. The action bar will

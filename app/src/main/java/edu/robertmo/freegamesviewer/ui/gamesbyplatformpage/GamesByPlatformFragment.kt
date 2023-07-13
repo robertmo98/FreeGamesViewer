@@ -27,6 +27,7 @@ class GamesByPlatformFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        // the platform (the user chose) is passed from another fragment
         val platform = requireArguments().getString("platform")
 
         viewModel = ViewModelProvider(this).get(GamesByPlatformViewModel::class.java)
@@ -42,7 +43,7 @@ class GamesByPlatformFragment : Fragment() {
             val adapter = GameAdapter(it) {game ->
                 val bundle = Bundle()
                 bundle.putParcelable(ARG_GAME, game)
-                findNavController().navigate(R.id.action_gamesByPlatformFragment_to_gameDetailsFragment)
+                findNavController().navigate(R.id.action_gamesByPlatformFragment_to_gameDetailsFragment, bundle)
             }
             binding.recyclerFilteredGames.adapter = adapter
             binding.recyclerFilteredGames.layoutManager = GridLayoutManager(context, 3)

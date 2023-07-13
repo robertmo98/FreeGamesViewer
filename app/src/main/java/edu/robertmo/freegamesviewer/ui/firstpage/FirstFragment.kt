@@ -14,7 +14,6 @@ import edu.robertmo.freegamesviewer.ui.MainActivity
 class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
-
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -26,7 +25,14 @@ class FirstFragment : Fragment() {
 
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
 
-        binding.btnPlatforms.setOnClickListener{
+        setupListeners()
+
+        return binding.root
+    }
+
+    //clicking on any item will lead to the relevant fragment
+    private fun setupListeners() {
+        binding.btnPlatforms.setOnClickListener {
             findNavController().navigate(R.id.action_firstFragment_to_choosePlatformFragment)
         }
 
@@ -37,9 +43,6 @@ class FirstFragment : Fragment() {
         binding.btnLatestReleaseDate.setOnClickListener {
             findNavController().navigate(R.id.action_firstFragment_to_discoverGamesFragment)
         }
-
-        return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

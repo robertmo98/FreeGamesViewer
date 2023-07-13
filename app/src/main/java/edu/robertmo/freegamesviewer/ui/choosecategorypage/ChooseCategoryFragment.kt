@@ -22,7 +22,7 @@ class ChooseCategoryFragment : Fragment() {
 
     private lateinit var viewModel: ChooseCategoryViewModel
 
-
+    //the "choice" will be replaced with the users response. choice=category chosen
     private var choice = ""
 
     override fun onCreateView(
@@ -37,7 +37,11 @@ class ChooseCategoryFragment : Fragment() {
                 choice = category
                 val bundle = Bundle()
                 bundle.putString(CATEGORY, choice)
-                findNavController().navigate(R.id.action_chooseCategoryFragment_to_gamesByCategory, bundle)
+                // Clicking on any category will pass the category to the next fragment
+                findNavController().navigate(
+                    R.id.action_chooseCategoryFragment_to_gamesByCategory,
+                    bundle
+                )
             }
             binding.recyclerCategories.adapter = adapter
             binding.recyclerCategories.layoutManager = GridLayoutManager(context, 3)

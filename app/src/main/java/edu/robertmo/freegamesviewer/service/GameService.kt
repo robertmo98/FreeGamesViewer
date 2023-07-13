@@ -14,9 +14,6 @@ interface GameService {
     @GET("games?platform=pc")
     suspend fun getPcGames(): GameResponse
 
-    @GET("games?platform=browser")
-    suspend fun getBrowserGames(): GameResponse
-
     @GET("games")
     suspend fun getGamesByPlatform(@Query("platform") platform: String): GameResponse
 

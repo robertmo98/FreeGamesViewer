@@ -16,6 +16,7 @@ class ChooseCategoryViewModel : ViewModel() {
     //expose the MutableLiveData ad Immutable:
     val categories: LiveData<List<String>> = _categories
 
+
     init {
         viewModelScope.launch {
             try {
@@ -28,7 +29,7 @@ class ChooseCategoryViewModel : ViewModel() {
             }
         }
     }
-
+    //list of categories is fetched from the api (extracted from list of games)
     private fun extractCategories(games: List<Game>): List<String> {
         val categories = HashSet<String>()
         for(game in games){

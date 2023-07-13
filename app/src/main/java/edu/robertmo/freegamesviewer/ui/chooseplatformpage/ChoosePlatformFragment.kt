@@ -24,20 +24,32 @@ class ChoosePlatformFragment : Fragment() {
     ): View {
         _binding = FragmentChoosePlatformBinding.inflate(inflater, container, false)
 
-        binding.imageComputer.setOnClickListener {
-            val bundle = Bundle()
-            bundle.putString("platform","pc")
-            findNavController().navigate(R.id.action_choosePlatformFragment_to_gamesByPlatformFragment, bundle)
-        }
-        binding.imageBrowser.setOnClickListener {
-            val bundle = Bundle()
-            bundle.putString("platform","browser")
-            findNavController().navigate(R.id.action_choosePlatformFragment_to_gamesByPlatformFragment, bundle)
-        }
-
+        setupListeners()
         return binding.root
     }
 
+
+
+
+
+    private fun setupListeners() {
+        binding.imageComputer.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("platform", "pc")
+            findNavController().navigate(
+                R.id.action_choosePlatformFragment_to_gamesByPlatformFragment,
+                bundle
+            )
+        }
+        binding.imageBrowser.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("platform", "browser")
+            findNavController().navigate(
+                R.id.action_choosePlatformFragment_to_gamesByPlatformFragment,
+                bundle
+            )
+        }
+    }
 
 
     override fun onDestroy() {
@@ -47,7 +59,7 @@ class ChoosePlatformFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        // set the name on the upper menu ber
+        // setup the name on the upper menu ber
         (activity as? MainActivity)?.setToolbarTitle("Platform Choice Page")
     }
 
