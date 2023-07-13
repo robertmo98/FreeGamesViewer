@@ -43,6 +43,7 @@ class GameDetailsFragment : Fragment() {
         binding.txtPlatform.text = game.platform
         binding.txtCategoryDetails.text = game.genre
         binding.txtDescription.text = game.shortDescription
+        binding.txtReleaseDate.text = game.releaseDate
         Picasso.get().load(game.thumbnail).into(binding.imgGame)
     }
 
