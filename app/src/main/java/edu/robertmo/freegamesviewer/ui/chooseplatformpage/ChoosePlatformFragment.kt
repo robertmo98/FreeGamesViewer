@@ -1,4 +1,4 @@
-package edu.robertmo.freegamesviewer.ui
+package edu.robertmo.freegamesviewer.ui.chooseplatformpage
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import edu.robertmo.freegamesviewer.R
 import edu.robertmo.freegamesviewer.databinding.FragmentChoosePlatformBinding
+import edu.robertmo.freegamesviewer.ui.MainActivity
 
 class ChoosePlatformFragment : Fragment() {
 

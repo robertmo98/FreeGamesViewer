@@ -1,11 +1,13 @@
 package edu.robertmo.freegamesviewer.models
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 class GameResponse : ArrayList<Game>()
 
-
+@Parcelize
 data class Game(
     val developer: String,
     @SerializedName("freetogame_profile_url")
@@ -22,5 +24,5 @@ data class Game(
     val shortDescription: String,
     val thumbnail: String?,
     val title: String
-)
+): Parcelable
 

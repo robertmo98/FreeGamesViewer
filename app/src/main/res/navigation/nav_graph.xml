@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/chooseCategoryFragment"
-        android:name="edu.robertmo.freegamesviewer.ui.ChooseCategoryFragment"
+        android:name="edu.robertmo.freegamesviewer.ui.choosecategorypage.ChooseCategoryFragment"
         android:label="fragment_choose_category"
         tools:layout="@layout/fragment_choose_category" >
         <action
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/choosePlatformFragment"
-        android:name="edu.robertmo.freegamesviewer.ui.ChoosePlatformFragment"
+        android:name="edu.robertmo.freegamesviewer.ui.chooseplatformpage.ChoosePlatformFragment"
         android:label="fragment_choose_platform"
         tools:layout="@layout/fragment_choose_platform" >
         <action
@@ -39,17 +39,34 @@
     </fragment>
     <fragment
         android:id="@+id/discoverGamesFragment"
-        android:name="edu.robertmo.freegamesviewer.ui.DiscoverGamesFragment"
+        android:name="edu.robertmo.freegamesviewer.ui.discovergamespage.DiscoverGamesFragment"
         android:label="fragment_discover_games"
-        tools:layout="@layout/fragment_discover_games" />
+        tools:layout="@layout/fragment_discover_games" >
+        <action
+            android:id="@+id/action_discoverGamesFragment_to_gameDetailsFragment"
+            app:destination="@id/gameDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/gamesByCategory"
-        android:name="edu.robertmo.freegamesviewer.ui.GamesByCategory"
+        android:name="edu.robertmo.freegamesviewer.ui.gamesbycategorypage.GamesByCategory"
         android:label="fragment_games_by_category"
-        tools:layout="@layout/fragment_games_by_category" />
+        tools:layout="@layout/fragment_games_by_category" >
+        <action
+            android:id="@+id/action_gamesByCategory_to_gameDetailsFragment"
+            app:destination="@id/gameDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/gamesByPlatformFragment"
-        android:name="edu.robertmo.freegamesviewer.ui.GamesByPlatformFragment"
+        android:name="edu.robertmo.freegamesviewer.ui.gamesbyplatformpage.GamesByPlatformFragment"
         android:label="fragment_games_by_platform"
-        tools:layout="@layout/fragment_games_by_platform" />
+        tools:layout="@layout/fragment_games_by_platform" >
+        <action
+            android:id="@+id/action_gamesByPlatformFragment_to_gameDetailsFragment"
+            app:destination="@id/gameDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameDetailsFragment"
+        android:name="edu.robertmo.freegamesviewer.GameDetailsFragment"
+        android:label="fragment_game_details"
+        tools:layout="@layout/fragment_game_details" />
 </navigation>

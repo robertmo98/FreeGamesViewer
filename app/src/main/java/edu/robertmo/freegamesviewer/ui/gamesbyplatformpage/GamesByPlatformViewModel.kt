@@ -1,4 +1,4 @@
-package edu.robertmo.freegamesviewer.ui
+package edu.robertmo.freegamesviewer.ui.gamesbyplatformpage
 
 import android.util.Log
 import androidx.lifecycle.LiveData

@@ -1,4 +1,4 @@
-package edu.robertmo.freegamesviewer.ui
+package edu.robertmo.freegamesviewer.ui.choosecategorypage
 
 import android.util.Log
 import androidx.lifecycle.LiveData

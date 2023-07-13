@@ -1,4 +1,4 @@
-package edu.dummy.finalprojectbeta1.ui.adapters
+package edu.robertmo.freegamesviewer.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,15 +9,15 @@ import edu.robertmo.freegamesviewer.databinding.CategoryItemBinding
 class CategoryAdapter(private val categories: List<String>, private val callback: (category: String)->Unit):
     Adapter<CategoryAdapter.VH>() {
 
-    override fun onBindViewHolder(holder: CategoryAdapter.VH, position: Int) {
+    override fun onBindViewHolder(holder: VH, position: Int) {
         val category = categories[position]
         holder.binding.categoryText.text = category
         holder.binding.root.setOnClickListener{
             callback(category)
         }
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryAdapter.VH {
-        return CategoryAdapter.VH(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
+        return VH(
             CategoryItemBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )

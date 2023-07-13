@@ -1,17 +1,20 @@
-package edu.robertmo.freegamesviewer.ui
+package edu.robertmo.freegamesviewer.ui.gamesbycategorypage
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import edu.robertmo.freegamesviewer.R
 import edu.robertmo.freegamesviewer.databinding.FragmentGamesByCategoryBinding
 import edu.robertmo.freegamesviewer.service.GameService
+import edu.robertmo.freegamesviewer.ui.MainActivity
 import edu.robertmo.freegamesviewer.ui.adapters.GameAdapter
 
+private const val ARG_GAME = "game"
 class GamesByCategory : Fragment() {
 
     private var _binding: FragmentGamesByCategoryBinding?= null
@@ -42,7 +45,11 @@ class GamesByCategory : Fragment() {
 
 
         viewModel.games.observe(viewLifecycleOwner) {
-            val adapter = GameAdapter(it)
+            val adapter = GameAdapter(it) {game ->
+                val bundle = Bundle()
+                bundle.putParcelable(ARG_GAME, game)
+                findNavController().navigate(R.id.action_gamesByCategory_to_gameDetailsFragment, bundle)
+            }
             binding.recyclerFilteredGames.adapter = adapter
             binding.recyclerFilteredGames.layoutManager = GridLayoutManager(context, 3)
         }

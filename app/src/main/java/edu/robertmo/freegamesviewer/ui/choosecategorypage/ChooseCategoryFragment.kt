@@ -1,4 +1,4 @@
-package edu.robertmo.freegamesviewer.ui
+package edu.robertmo.freegamesviewer.ui.choosecategorypage
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,9 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import edu.dummy.finalprojectbeta1.ui.adapters.CategoryAdapter
+import edu.robertmo.freegamesviewer.ui.adapters.CategoryAdapter
 import edu.robertmo.freegamesviewer.R
 import edu.robertmo.freegamesviewer.databinding.FragmentChooseCategoryBinding
+import edu.robertmo.freegamesviewer.ui.MainActivity
 
 private const val CATEGORY = "category"
 class ChooseCategoryFragment : Fragment() {
@@ -36,7 +37,6 @@ class ChooseCategoryFragment : Fragment() {
                 choice = category
                 val bundle = Bundle()
                 bundle.putString(CATEGORY, choice)
-                println("!!!!!!!!!!!!!!!!"+choice)
                 findNavController().navigate(R.id.action_chooseCategoryFragment_to_gamesByCategory, bundle)
             }
             binding.recyclerCategories.adapter = adapter

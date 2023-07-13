@@ -8,16 +8,15 @@ import com.squareup.picasso.Picasso
 import edu.robertmo.freegamesviewer.databinding.GameItemBinding
 import edu.robertmo.freegamesviewer.models.Game
 
-class GameAdapter(val games : List<Game>): Adapter<GameAdapter.VH>() {
+class GameAdapter(val games : List<Game>, private val callback: (game: Game) -> Unit): Adapter<GameAdapter.VH>() {
 
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
-        return VH(
-            GameItemBinding.inflate(
-                LayoutInflater.from(parent.context), parent, false
-            )
-        )
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = GameItemBinding.inflate(inflater, parent, false)
+        return VH(binding)
+
     }
 
     override fun getItemCount() = games.size
@@ -28,6 +27,10 @@ class GameAdapter(val games : List<Game>): Adapter<GameAdapter.VH>() {
         holder.binding.gameDescription.text = game.shortDescription
         holder.binding.gameCategory.text = game.genre
         Picasso.get().load(game.thumbnail).into(holder.binding.gameImage)
+
+        holder.binding.root.setOnClickListener {
+            callback(game)
+        }
     }
 
     class VH(val binding: GameItemBinding): ViewHolder(binding.root)
