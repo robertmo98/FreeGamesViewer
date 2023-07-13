@@ -13,7 +13,8 @@ There are three "paths" :
    
    There are two options: games for PC and games for Browser, depending on the clicked option, the next page presents a Recycler-View
    consists of games for the selected platform. Clicking on any game will lead to the page that shows further information of the game.
-2) Navigate to the "Choose Category" page:
+   
+3) Navigate to the "Choose Category" page:
    <img width="755" alt="image" src="https://github.com/robertmo98/FreeGamesViewer/assets/107803618/d175d954-71c4-4138-bad6-19da167115ad">
    
    The categories are presented in a RecyclerView.
@@ -22,8 +23,10 @@ There are three "paths" :
    Clicking on any game in the recycler will lead to the details page for the clicked item.
    A problem in the api leads to irellevant categories. The clicked category uses as a QUERY parameter for the GET request, however,
    the json retreived consists of games of different and irrelevant categories.
-3) Navigate to the "Lateset Released Date" page:
-   ![Uploading image.png…]()
+   
+4) Navigate to the "Lateset Released Date" page:
+   <img width="580" alt="image" src="https://github.com/robertmo98/FreeGamesViewer/assets/107803618/cd6bf873-fb35-415a-992b-6cba6c99c55b">
+
    This page displays the games sorted-by release date (newest to oldest) - for web and browser.
    Clicking on any game will lead to the details page.
 
