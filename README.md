@@ -1,17 +1,21 @@
-<img width="755" alt="image" src="https://github.com/robertmo98/FreeGamesViewer/assets/107803618/b3a0ab5d-a62e-4b49-9594-3ac64d3f9660">FreeGamesViewer - Android Application (final project).
+<img width="755" alt="image" src="https://github.com/robertmo98/FreeGamesViewer/assets/107803618/b3a0ab5d-a62e-4b49-9594-3ac64d3f9660">
+FreeGamesViewer - Android Application (final project).
 July 2023
 The Application presents free games, based on the api https://www.freetogame.com/api.
 The uses may choose to filter the presented information by clicking the requested options.
 
 Main page:
 <img width="1149" alt="image" src="https://github.com/robertmo98/FreeGamesViewer/assets/107803618/ff2826c8-b2f0-4558-8942-ede1abca8c57">
+
 There are three "paths" :
 1) Navigate to the "Choose Platform" page:
    <img width="801" alt="image" src="https://github.com/robertmo98/FreeGamesViewer/assets/107803618/c8e3c2f0-d64d-4351-a2ff-55b97b77bad6">
+   
    There are two options: games for PC and games for Browser, depending on the clicked option, the next page presents a Recycler-View
    consists of games for the selected platform. Clicking on any game will lead to the page that shows further information of the game.
 2) Navigate to the "Choose Category" page:
    <img width="755" alt="image" src="https://github.com/robertmo98/FreeGamesViewer/assets/107803618/d175d954-71c4-4138-bad6-19da167115ad">
+   
    The categories are presented in a RecyclerView.
    (The categories areretreived from the api, by extracting a list from the json of all the available games, since there is not endpoid that
    fits this requirement).
