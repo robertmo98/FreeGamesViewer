@@ -35,4 +35,4 @@ Retrofit
 
 Design patter: MVVM
 
-The information is bases on the free api - https://www.freetogame.com/api , with gratitude to the "freetogame" team .
+The data of games is based on the free api - https://www.freetogame.com/api , with gratitude to the "freetogame" team .
