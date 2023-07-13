@@ -1,4 +1,4 @@
-<img width="755" alt="image" src="https://github.com/robertmo98/FreeGamesViewer/assets/107803618/b3a0ab5d-a62e-4b49-9594-3ac64d3f9660">FreeGamesViewer - Android Application final project.
+<img width="755" alt="image" src="https://github.com/robertmo98/FreeGamesViewer/assets/107803618/b3a0ab5d-a62e-4b49-9594-3ac64d3f9660">FreeGamesViewer - Android Application (final project).
 July 2023
 The Application presents free games, based on the api https://www.freetogame.com/api.
 The uses may choose to filter the presented information by clicking the requested options.
