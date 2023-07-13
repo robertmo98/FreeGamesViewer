@@ -2,7 +2,7 @@
 FreeGamesViewer - Android Application (final project).
 July 2023
 The Application presents free games, based on the api https://www.freetogame.com/api.
-The uses may choose to filter the presented information by clicking the requested options.
+The user may choose to filter the presented information by clicking the requested options.
 
 Main page:
 <img width="214" alt="image" src="https://github.com/robertmo98/FreeGamesViewer/assets/107803618/0d8adf07-6294-46b8-96e4-e23edd6f7c6a">
